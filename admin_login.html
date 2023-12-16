@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 1em;
+            color: white;
+            text-align: center;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; 
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: left; 
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Admin Login Page</h1>
+    </header>
+
+    <div class="login-container">
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="submitForm()">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function submitForm() {
+            const usernameInput = document.getElementById("username");
+            const passwordInput = document.getElementById("password");
+    
+            const username = encodeURIComponent(usernameInput.value);
+            const password = encodeURIComponent(passwordInput.value);
+    
+            fetch("admin_login.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: "username=" + username + "&password=" + password,
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok. Status: " + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                alert(data.message);
+                if (data.message === "Login successful") {
+                    window.location.href = "admin_dashboard.php";
+    
+                    // Clear input fields after successful login
+                    usernameInput.value = "";
+                    passwordInput.value = "";
+                }
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+                alert("Error: " + error.message);
+            });
+        }
+    </script>    
+    
+</body>
+</html>

@@ -1,0 +1,186 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Crime Management System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 10px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            width: 70px; 
+            height: auto; 
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: #45a049;
+        }
+
+        nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f0f0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+        .authentication {
+            padding: 5px;
+            background-color: #006400; /* Change background color to dark green */
+            color: white;
+            text-align: center;
+        }
+
+        .authentication a {
+            text-decoration: none;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .authentication a:hover {
+            background-color: #004d00; /* Change hover background color to a darker shade of green */
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Your System Logo">
+          </div>
+          
+        <nav>
+            <ul>
+                <li><a href="homepsge.html" class="active">Home</a></li>
+                <li><a href="User_login_and_regisster.html">Submit Complaint</a></li>
+                <li><a href="about_form.html">About Us</a></li>
+                <li><a href="contact_form.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="authentication">
+            <a href="User_login_and_regisster.html">Login or Register</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Environmental Crime Management System</h1>
+        <p>Your platform for reporting and managing environmental crimes.</p>
+        <button onclick="location.href='User_login_and_regisster.html'">Submit a Complaint</button>
+    </section>
+
+    <section>
+        <h2> Environmental Crime Management System</h2>
+        <p>Empowering Communities for a Greener Future</p>
+    
+        <p>The Environmental Crime Management System is a robust platform designed to facilitate the reporting and management of environmental crimes. Whether you've witnessed illegal dumping, deforestation, or any other environmental offense, this system empowers you to take action and contribute to environmental conservation.</p>
+    
+        <h3>Key Features:</h3>
+        <ul>
+            <li><strong>Submit Complaints:</strong> Easily report environmental crimes with our user-friendly complaint submission system.</li>
+            <li><strong>About Us:</strong> Learn more about our mission, values, and the dedicated team working to protect the environment.</li>
+            <li><strong>Contact Us:</strong> Have questions or need assistance? Contact us, and we'll be happy to help.</li>
+        </ul>
+    
+        <h3>How It Works:</h3>
+        <ol>
+            <li>Click on "Submit a Complaint" to report any environmental issues you come across.</li>
+
+            <li>Learn more about our organization and the work we do in the "About Us" section.</li>
+            <li>Contact us if you have any questions, feedback, or need assistance.</li>
+        </ol>
+    
+        <p>Your participation in reporting environmental crimes plays a crucial role in creating a sustainable and healthier environment. Thank you for being an active member of the Environmental Crime Management System!</p>
+    </section>
+    
+    
+    <footer>
+        <div class="contact-info">
+            <p>Contact us: Envcrime.com | Phone: +94(77) 123 4567</p>
+        </div>
+        <div class="quick-links">
+            <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a> | <a href="#faq">FAQ</a>
+        </div>
+        <p>&copy; 2023 Environmental Complaint System</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var currentLocation = window.location.hash;
+            var navLinks = document.querySelectorAll("nav ul li a");
+
+            navLinks.forEach(function (link) {
+                if (link.getAttribute("href") === currentLocation) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
